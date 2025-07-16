@@ -130,7 +130,7 @@ labels = {
         none = "",
         name = "KORSC Script".." v"..main_var.SCRIPT_VER,
         credit = "@UZN",
-        github_dir = "~y~https://github.com/",
+        github_dir = "~y~https://github.com/Valley658/UZNScript/",
 
         orbital_wlf = {
             flag_500 = "orbital_flag: waiting_delay_1",
