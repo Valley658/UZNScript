@@ -4,7 +4,7 @@
 
 main_var = {
     SCRIPT_NAME = "KORSC",
-    SCRIPT_VER = "5-a",
+    SCRIPT_VER = "6-a",
 
     delay_Type = 1,
     delay_sec = {
@@ -50,17 +50,12 @@ labels = {
         money_div = "돈 넣기",
 
         money_tab = "돈 넣기",
-        instant_tab = "Instant Money",
-        safe_tab = "Safe Money",
-        custom_tab = "Custom Money",
+        instant_tab = "즉시 머니",
+        safe_tab = "안전 머니",
+        custom_tab = "사용자 정의 머니",
 
         orbital_menu = "[$] 오비탈 환불",
         orbital_desc = "오비탈 머니 방식이 곧 디텍(탐지)될 가능성이 있어, 안전을 위해 해당 방식의 사용을 당분간 자제해주시길 부탁드립니다.",
-
-        ez680k_menu = "[$] Earn 680k",
-        ez180k_menu = "[$] Earn 180k",
-        ez50k_menu = "[$] Earn 50k",
-        ez_desc = "standard method but limited\ndelay 1",
     },
 
     Misc_labels = {
@@ -85,45 +80,45 @@ labels = {
 
         limit_div = "한도 설정",
         
-        limit_sel = "Limit: ",
+        limit_sel = "한도: ",
         limit_sel_de = ": $50,000m",
 
-        reset_earn = "Reset Earned",
+        reset_earn = "수익 리셋",
         
-        limit_enable = "Enable",
-        limit_enable_desc = "The loop will automatically turn off when you reach the amount you set."
+        limit_enable = "사용",
+        limit_enable_desc = "설정한 금액에 도달하면 루프가 자동으로 꺼집니다."
     },
 
     Setting_labels = {
         setting_tab = "설정",
         
-        delay_select_div = "Delay Selection",
+        delay_select_div = "딜레이 선택",
 
-        delay_type = "Delay Type",
-        delay_type_desc = "Select Delay Methods for Money Loops\n\nTime: standard method\nBasket Detect: Auto Delay System\nRapid: cooked",
-        delay_type_Time = "Time",
-        delay_type_BasketDetection = "Basket Detecttion",
-        delay_type_Rapid = "Rapid",
-        new_delay_type_Time = "New delay Type: Time",
-        new_delay_type_BasketDetection = "New delay Type: Basket Detect (This Method was patched by r*)",
-        new_delay_type_Rapid = "New delay Type: Rapid",
+        delay_type = "딜레이 유형",
+        delay_type_desc = "머니 루프를 위한 딜레이 방법 선택\n\n시간: 표준 방법\n바스켓 감지: 자동 딜레이 시스템\n빠름: 위험",
+        delay_type_Time = "시간",
+        delay_type_BasketDetection = "바스켓 감지",
+        delay_type_Rapid = "빠름",
+        new_delay_type_Time = "새 딜레이 유형: 시간",
+        new_delay_type_BasketDetection = "새 딜레이 유형: 바스켓 감지 (이 방법은 r*에 의해 패치됨)",
+        new_delay_type_Rapid = "새 딜레이 유형: 빠름",
 
-        delay_set_tab = "Delay Setting",
-        delay_set_div = "Delay Settings",
+        delay_set_tab = "딜레이 설정",
+        delay_set_div = "딜레이 설정",
 
-        delay_custom_select_1 = "Select Delay 1: ",
-        delay_custom_select_1_desc = "Default: 500ms",
-        delay_custom_select_2 = "Select Delay 2: ",
-        delay_custom_select_2_desc = "Default: 1000ms",
-        delay_custom_select_3 = "Select Delay 3: ",
-        delay_custom_select_3_desc = "Default: 10000ms", 
-        delay_custom_select_4 = "Select Delay 4: ",
-        delay_custom_select_4_desc = "Default: 11500ms", 
+        delay_custom_select_1 = "딜레이 1 선택: ",
+        delay_custom_select_1_desc = "기본값: 500ms",
+        delay_custom_select_2 = "딜레이 2 선택: ",
+        delay_custom_select_2_desc = "기본값: 1000ms",
+        delay_custom_select_3 = "딜레이 3 선택: ",
+        delay_custom_select_3_desc = "기본값: 10000ms", 
+        delay_custom_select_4 = "딜레이 4 선택: ",
+        delay_custom_select_4_desc = "기본값: 11500ms", 
         
-        overlay_div = "Watermark Setting",
+        overlay_div = "워터마크 설정",
 
-        dbgtext_menu = "Debug Text",
-        dbgtext_desc = "Show Debug Text"
+        dbgtext_menu = "디버그 텍스트",
+        dbgtext_desc = "디버그 텍스트 표시"
     },
 
     Watermark_label = {
@@ -150,9 +145,9 @@ labels = {
         },   
         
        limit_wlf = {
-            limited_earn = "Limited Earn: "..main_var.limit_flag.limit_selection,
+            limited_earn = "한도 설정: "..main_var.limit_flag.limit_selection,
             your_earned = "적립된 금액: "..main_var.limit_flag.got,
-            is_limit_wlf = "Limit: "..main_var.limit_flag.is_limit
+            is_limit_wlf = "한도: "..main_var.limit_flag.is_limit
         },  
     },
 
@@ -164,9 +159,9 @@ labels = {
 global_var = {
     
     instant = {
-        ezmoney = 4537945, --3407
+        ezmoney = 4537945,
         orbital = 1965092, --수정X
-        chips = 1967286, --outdated (shit)
+        chips = 1967286,
     },
 
     ezmoney_hash = {
@@ -178,14 +173,14 @@ global_var = {
     },
 
     safe_loop = {
-        nightclub_safe = 262145, --outdated (detected?)
+        nightclub_safe = 1943883, --outdated (detected?)
     }
 }
 
 util.create_tick_handler(function() -- refresh limit var
-    labels.Watermark_label.limit_wlf.limited_earn = "Limited Earn: "..main_var.limit_flag.limit_selection
-    labels.Watermark_label.limit_wlf.your_earned = "You Earned: "..main_var.limit_flag.got
-    labels.Watermark_label.limit_wlf.is_limit_wlf = "Limit: "..main_var.limit_flag.is_limit
+    labels.Watermark_label.limit_wlf.limited_earn = "한도 설정: "..main_var.limit_flag.limit_selection
+    labels.Watermark_label.limit_wlf.your_earned = "적립된 금액: "..main_var.limit_flag.got
+    labels.Watermark_label.limit_wlf.is_limit_wlf = "한도: "..main_var.limit_flag.is_limit
 end)
 ---
 
@@ -301,121 +296,6 @@ end, function()
     do_ezmoney(global_var.ezmoney_hash.tiunk, 0)
 end)
 
-menu.toggle_loop(Money, labels.Money_labels.ez680k_menu, {"680kloop"}, labels.Money_labels.ez_desc, function()
-    main_var.loop_flag.is_loop_running = true
-    labels.Watermark_label.loop_wlf.running_name = labels.Money_labels.ez680k_menu
-
-    price = NETSHOPPING.NET_GAMESERVER_GET_PRICE(global_var.ezmoney_hash.bet, global_var.ezmoney_hash.category, true)
-    if main_var.delay_Type == 1 then
-        if(main_var.limit_flag.got >= main_var.limit_flag.limit_selection) then
-            util.toast(labels.Flag_label.done)
-            menu.trigger_commands("680kloop off")
-        else
-            do_ezmoney(global_var.ezmoney_hash.bet, price)
-            main_var.limit_flag.got = main_var.limit_flag.got + price
-        end
-        util.yield(main_var.delay_sec.delay_1)
-    elseif main_var.delay_Type == 2 then
-        if(main_var.limit_flag.got >= main_var.limit_flag.limit_selection) then
-            util.toast(labels.Flag_label.done)
-            menu.trigger_commands("680kloop off")
-        else
-            do_ezmoney(global_var.ezmoney_hash.bet, price)
-            main_var.limit_flag.got = main_var.limit_flag.got + price
-        end
-        util.yield(main_var.delay_sec.delay_1)
-    else
-        if(main_var.limit_flag.got >= main_var.limit_flag.limit_selection) then
-            util.toast(labels.Flag_label.done)
-            menu.trigger_commands("680kloop off")
-        else
-            do_ezmoney(global_var.ezmoney_hash.bet, price)
-            main_var.limit_flag.got = main_var.limit_flag.got + price
-        end
-    end
-end, function()
-    main_var.loop_flag.is_loop_running = false;
-    labels.Watermark_label.loop_wlf.running_name = ""
-    do_ezmoney(global_var.ezmoney_hash.tiunk, 0)
-end)
-
-menu.toggle_loop(Money, labels.Money_labels.ez180k_menu, {"180kloop"}, labels.Money_labels.ez_desc, function()
-    main_var.loop_flag.is_loop_running = true
-    labels.Watermark_label.loop_wlf.running_name = labels.Money_labels.ez180k_menu
-
-    price = NETSHOPPING.NET_GAMESERVER_GET_PRICE(global_var.ezmoney_hash.obj, global_var.ezmoney_hash.category, true)
-    if main_var.delay_Type == 1 then
-        if(main_var.limit_flag.got >= main_var.limit_flag.limit_selection) then
-            util.toast(labels.Flag_label.done)
-            menu.trigger_commands("180kloop off")
-        else
-            do_ezmoney(global_var.ezmoney_hash.obj, price)
-            main_var.limit_flag.got = main_var.limit_flag.got + price
-        end
-        util.yield(main_var.delay_sec.delay_1)
-    elseif main_var.delay_Type == 2 then
-        if(main_var.limit_flag.got >= main_var.limit_flag.limit_selection) then
-            util.toast(labels.Flag_label.done)
-            menu.trigger_commands("180kloop off")
-        else
-            do_ezmoney(global_var.ezmoney_hash.obj, price)
-            main_var.limit_flag.got = main_var.limit_flag.got + price
-        end
-        util.yield(main_var.delay_sec.delay_1)
-    else
-        if(main_var.limit_flag.got >= main_var.limit_flag.limit_selection) then
-            util.toast(labels.Flag_label.done)
-            menu.trigger_commands("180kloop off")
-        else
-            do_ezmoney(global_var.ezmoney_hash.obj, price)
-            main_var.limit_flag.got = main_var.limit_flag.got + price
-        end
-    end
-end, function()
-    main_var.loop_flag.is_loop_running = false;
-    labels.Watermark_label.loop_wlf.running_name = ""
-    do_ezmoney(global_var.ezmoney_hash.tiunk, 0)
-end)
-
-menu.toggle_loop(Money, labels.Money_labels.ez50k_menu, {"50kloop"}, labels.Money_labels.ez_desc, function()
-    main_var.loop_flag.is_loop_running = true
-    labels.Watermark_label.loop_wlf.running_name = labels.Money_labels.ez50k_menu
-
-    price = NETSHOPPING.NET_GAMESERVER_GET_PRICE(global_var.ezmoney_hash.tiunk, global_var.ezmoney_hash.category, true)
-    if main_var.delay_Type == 1 then
-        if(main_var.limit_flag.got >= main_var.limit_flag.limit_selection) then
-            util.toast(labels.Flag_label.done)
-            menu.trigger_commands("50kloop off")
-        else
-            do_ezmoney(global_var.ezmoney_hash.tiunk, price)
-            main_var.limit_flag.got = main_var.limit_flag.got + price
-            util.toast(main_var.limit_flag.got)
-        end
-        util.yield(main_var.delay_sec.delay_1)
-    elseif main_var.delay_Type == 2 then
-        if(main_var.limit_flag.got >= main_var.limit_flag.limit_selection) then
-            util.toast(labels.Flag_label.done)
-            menu.trigger_commands("50kloop off")
-        else
-            do_ezmoney(global_var.ezmoney_hash.tiunk, price)
-            main_var.limit_flag.got = main_var.limit_flag.got + price
-        end
-        util.yield(main_var.delay_sec.delay_1)
-    else
-        if(main_var.limit_flag.got >= main_var.limit_flag.limit_selection) then
-            util.toast(labels.Flag_label.done)
-            menu.trigger_commands("50kloop off")
-        else
-            do_ezmoney(global_var.ezmoney_hash.tiunk, price)
-            main_var.limit_flag.got = main_var.limit_flag.got + price
-        end
-    end
-end, function()
-    main_var.loop_flag.is_loop_running = false;
-    labels.Watermark_label.loop_wlf.running_name = ""
-    do_ezmoney(global_var.ezmoney_hash.tiunk, 0)
-end)
-
 ---#Safe Money
 
 
@@ -453,7 +333,7 @@ menu.action(Misc, labels.Misc_labels.fast_do_rp, {"fastchangerp"}, labels.Misc_l
     menu.trigger_commands("go solo")
 end)
 
-menu.action(Misc, labels.Misc_labels.fast_do_rep, {"fastchangels"}, labels.Misc_labels.fast_do_rep_desc, function()
+menu.action(Misc, labels.Misc_labels.fast_do_rep, {"setlscarmeetreplevel"}, labels.Misc_labels.fast_do_rep_desc, function()
     menu.trigger_commands("setlscarmeetreplevel "..main_var.fast_change.rp_selection)
 end)
 
