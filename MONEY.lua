@@ -4,7 +4,7 @@
 
 main_var = {
     SCRIPT_NAME = "KORSC",
-    SCRIPT_VER = "0.6.5",
+    SCRIPT_VER = "0.6.6",
 
     delay_Type = 1,
     delay_sec = {
