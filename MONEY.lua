@@ -1,10 +1,12 @@
     --[[
         Developer: uzn_2b
+        Description: Korean Script for UZN Script
+        License: MIT License
     ]]--
 
 main_var = {
     SCRIPT_NAME = "KORSC",
-    SCRIPT_VER = "0.6.6",
+    SCRIPT_VER = "0.6.8",
 
     delay_Type = 1,
     delay_sec = {
@@ -362,7 +364,7 @@ labels.Setting_labels.delay_type_Rapid,
     if index == 1 then
         util.toast(labels.Setting_labels.new_delay_type_Time)
         main_var.delay_Type = 1
-    elseif  index == 2 then
+    elseif index == 2 then
         util.toast(labels.Setting_labels.new_delay_type_BasketDetection)
         main_var.delay_Type = 2
     else
