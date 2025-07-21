@@ -1,7 +1,5 @@
     --[[
         Developer: uzn_2b
-        Description: Korean Script for UZN Script
-        License: MIT License
     ]]--
 
 main_var = {
